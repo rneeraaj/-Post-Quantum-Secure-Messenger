@@ -1,0 +1,12 @@
+[package]
+name = "pq_messenger"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pqcrypto-kyber = "0.7.2"
+pqcrypto-traits = "0.3"
+aes-gcm = "0.10"
+aes = "0.8"
+hex = "0.4"
+rand = "0.8"
