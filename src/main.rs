@@ -9,21 +9,13 @@ use chatroom::ChatRoom;
 fn main() {
     let mut chatroom = ChatRoom::new();
 
-    // Create users
-    let alice = User::new("Alice");
-    let bob = User::new("Bob");
-    let charlie = User::new("Charlie");
-
-    // Add users to chatroom
-    chatroom.add_user(alice);
-    chatroom.add_user(bob);
-    chatroom.add_user(charlie);
-
     println!("🚀 Post-Quantum Secure Messenger Started!");
-    println!("👥 Available Users: Alice, Bob, Charlie");
+    println!("👥 Type 'new' to create a new user");
+    println!("👥 Type 'list' to see all users");
+    println!("👥 Type 'exit' to quit");
 
     loop {
-        println!("\n🔁 New Message (type 'exit' to quit)");
+        println!("\n🔁 New Message");
 
         // Get sender
         print!("From: ");
@@ -31,11 +23,38 @@ fn main() {
         let mut from = String::new();
         io::stdin().read_line(&mut from).unwrap();
         let from = from.trim();
+        
         if from.eq_ignore_ascii_case("exit") { break; }
+        
+        if from.eq_ignore_ascii_case("new") {
+            print!("Enter new username: ");
+            io::stdout().flush().unwrap();
+            let mut username = String::new();
+            io::stdin().read_line(&mut username).unwrap();
+            let username = username.trim();
+            
+            if chatroom.has_user(username) {
+                println!("❌ User '{}' already exists.", username);
+                continue;
+            }
+            
+            let new_user = User::new(username);
+            chatroom.add_user(new_user);
+            println!("✅ User '{}' created successfully!", username);
+            continue;
+        }
+        
+        if from.eq_ignore_ascii_case("list") {
+            println!("👥 Available Users:");
+            for user in chatroom.get_users() {
+                println!("- {}", user);
+            }
+            continue;
+        }
 
         // Check if sender exists
         if !chatroom.has_user(from) {
-            println!("❌ Unknown user '{}'. Please enter a valid username.", from);
+            println!("❌ Unknown user '{}'. Please enter a valid username or type 'new' to create one.", from);
             continue;
         }
 

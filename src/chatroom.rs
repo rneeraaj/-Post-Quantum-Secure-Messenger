@@ -20,6 +20,10 @@ impl ChatRoom {
         self.users.contains_key(name)
     }
 
+    pub fn get_users(&self) -> Vec<String> {
+        self.users.keys().cloned().collect()
+    }
+
     /// Sender encrypts message for recipient, returns (ciphertext, nonce)
     pub fn send_encrypted(&self, from: &str, to: &str, message: &str) -> Option<(Vec<u8>, Vec<u8>)> {
         let sender = self.users.get(from)?;

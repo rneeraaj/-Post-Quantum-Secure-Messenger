@@ -1,66 +1,50 @@
-# 🚀 BB84 Quantum Key Distribution message system using   BB84 Quantum Key Distribution
+# 🚀 Post-Quantum Secure Messenger
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Quantum-Computing-blue" alt="Quantum Computing">
   <img src="https://img.shields.io/badge/Rust-1.75.0-orange" alt="Rust">
-  <img src="https://img.shields.io/badge/WebAssembly-1.0-green" alt="WebAssembly">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
 </div>
 
 ## 📋 Overview
 
-A cutting-edge web application implementing the BB84 quantum key distribution protocol, providing secure quantum cryptography capabilities in a user-friendly interface. This project demonstrates the practical implementation of quantum cryptography principles in a web environment.
+A secure messaging application that implements post-quantum cryptography for end-to-end encrypted communication. This application allows users to create accounts and exchange encrypted messages securely.
 
-## 🔐 What is BB84?
+## ✨ Features
 
-The BB84 protocol, developed by Charles Bennett and Gilles Brassard in 1984, is a quantum key distribution scheme that enables two parties to produce a shared random secret key known only to them, which can then be used to encrypt and decrypt messages.
-
-## ✨ Key Features
-
-- **Quantum Key Distribution**: Implementation of the BB84 protocol
-- **Secure Communication**: End-to-end encryption using quantum principles
-- **Modern Web Interface**: User-friendly design for quantum cryptography operations
-- **WebAssembly Integration**: High-performance quantum operations in the browser
-- **Cross-Platform**: Works on any modern web browser
-- **Real-time Key Generation**: Instant quantum key generation and distribution
-- **Error Detection**: Built-in error detection and correction mechanisms
+- **User Management**: Create and manage multiple users
+- **End-to-End Encryption**: Messages are encrypted using post-quantum cryptography
+- **Secure Communication**: Messages are encrypted before transmission
+- **User-Friendly CLI**: Simple command-line interface for easy interaction
 
 ## 🛠️ Technical Stack
 
-- **Backend**: Rust
-- **Frontend**: WebAssembly
-- **Quantum Simulation**: Custom quantum state simulation
+- **Language**: Rust
 - **Cryptography**: Post-quantum cryptography algorithms
-- **Web Interface**: Modern web technologies
+- **Dependencies**: 
+  - pqcrypto-kyber
+  - aes-gcm
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - Rust 1.75.0 or later
-- WebAssembly target (`wasm32-unknown-unknown`)
-- Modern web browser with WebAssembly support
 - Git
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/bb84_webapp.git
-cd bb84_webapp
-```
-
-2. Navigate to the project directory:
-```bash
+git clone https://github.com/yourusername/pq_messenger.git
 cd pq_messenger
 ```
 
-3. Build the project:
+2. Build the project:
 ```bash
 cargo build --release
 ```
 
-4. Run the development server:
+3. Run the application:
 ```bash
 cargo run
 ```
@@ -68,37 +52,54 @@ cargo run
 ## 📁 Project Structure
 
 ```
-bb84_webapp/
-├── pq_messenger/          # Main project directory
-│   ├── src/              # Source code
-│   │   ├── main.rs      # Entry point
-│   │   ├── user.rs      # User implementation
-│   │   └── lib.rs       # Library definitions
-│   ├── target/          # Build output
-│   ├── Cargo.toml       # Rust dependencies
-│   └── Cargo.lock       # Dependency lock file
+pq_messenger/
+├── src/
+│   ├── main.rs      # Main application logic
+│   ├── user.rs      # User management and encryption
+│   └── chatroom.rs  # Chat room functionality
+├── Cargo.toml       # Project dependencies
+└── Cargo.lock       # Dependency lock file
 ```
 
 ## 🔧 Usage
 
-1. Start the application
-2. Connect to the quantum key distribution server
-3. Generate quantum keys
-4. Use the keys for secure communication
+### Creating a New User
 
-## 📚 Documentation
+1. Start the application:
+```bash
+cargo run
+```
 
-For detailed documentation about the BB84 protocol implementation and API usage, please refer to the [documentation](docs/).
+2. When prompted for the sender, type `new` to create a new user
+3. Enter your desired username
+4. The system will create a new user with encryption keys
 
-## 🤝 Contributing
+### Sending Messages
 
-We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+1. Enter the sender's username when prompted
+2. Enter the recipient's username
+3. Type your message
+4. The message will be encrypted and sent securely
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Example Session
+
+```
+🚀 Post-Quantum Secure Messenger Started!
+
+🔁 New Message (type 'exit' to quit)
+From: new
+Enter new username: Alice
+User 'Alice' created successfully!
+
+From: Alice
+To: Bob
+Message: Hello, this is a secure message!
+
+🔐 Message sent securely!
+📦 Ciphertext: [...]
+🕵️‍♀️ Nonce: [...]
+📬 Bob received: "Hello, this is a secure message!"
+```
 
 ## 📝 License
 
@@ -110,19 +111,18 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Quantum Computing Community
-- Rust and WebAssembly teams
-- Charles Bennett and Gilles Brassard for the BB84 protocol
+- Rust community
+- Post-quantum cryptography researchers
 - All contributors and supporters
 
 ## 📞 Contact
 
 Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
 
-Project Link: [https://github.com/yourusername/bb84_webapp](https://github.com/yourusername/bb84_webapp)
+Project Link: [https://github.com/yourusername/pq_messenger](https://github.com/yourusername/pq_messenger)
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ using Rust and WebAssembly</sub>
+  <sub>Built with ❤️ using Rust</sub>
 </div> 
